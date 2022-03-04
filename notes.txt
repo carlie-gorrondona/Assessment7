@@ -1,0 +1,16 @@
+Notes on Runtime Analysis
+
+When the extraLargeArray is passed to the doublerInsert function, its runtime is 1.058 s.
+When passed to the doublerAppend function, its runtime is 5.526 ms.
+
+Runtime Comparions
+___________________________________________________________________________________________________
+|                 |  tinyArray  |  smallArray  |  mediumArray  |  largeArray  |  extraLargeArray  |
+|_________________|_____________|______________|_______________|______________|___________________|
+|  doublerAppend  | 307.227 µs  |  148.181 µs  |  279.261 µs   |  728.178 µs  |   5.525 ms        |
+|_________________|_____________|______________|_______________|______________|___________________|
+|  doublerInsert  | 57.069 µs   |  62.95 µs    |  317.205 µs   |  8.051 ms    |   1.058 s         |
+|_________________|_____________|______________|_______________|______________|___________________|
+
+
+Based on the table, the doublerInsert function is faster than the doublerAppend function when using the tiny and small arrays. Once the mediumArray is passed in, the doublerInsert function becomes the slower of the two especially when the large and extra large arrays are passed. Of the two, the doublerAppend function scales better, because its runtime slowly increases as the array gets larger while the doublerInsert runtime drastically increases from µs to ms to s when the medium, large, and extra large arrays are passed in respectively.
